@@ -11,11 +11,31 @@ class point{
 class vector{
 	public:
 		point start, end;
-};
+	
+	void printVec(){
+		cout << "(" << start.x << "," << start.y << ") -> (" << end.x <<
+			"," << end.y << ")" << endl;
+	}
 
-double length(vector vec){
-	return sqrt(pow((vec.end.x - vec.start.x),2) + pow((vec.end.y - vec.start.y),2));
-}
+	double length(){
+		return sqrt(pow((end.x - start.x),2) + pow((end.y - start.y),2));
+	}
+
+	void populateVec(){
+		cout << "Enter the start point in vector 1 (x,y):\n" << "x: ";
+		cin >> start.x;
+		cout << "y: ";
+		cin >> start.y;
+		cout << "Enter the end point in vector 1 (x,y):\n" << "x: ";
+		cin >> end.x;
+		cout << "y: ";
+		cin >> end.y;
+		cout << "Your vector is:\n"; 
+		printVec();
+		cout << "with a length of: " << length() << " units." << endl;
+	}
+
+};
 
 vector addVec(vector vec1, vector vec2){
 	vector vec;
@@ -26,28 +46,15 @@ vector addVec(vector vec1, vector vec2){
 	return vec;
 }
 
-void populateVec(vector &vec){
-	cout << "Enter the start point in vector 1 (x,y):\n" << "x: ";
-	cin >> vec.start.x;
-	cout << "y: ";
-	cin >> vec.start.y;
-	cout << "Enter the end point in vector 1 (x,y):\n" << "x: ";
-	cin >> vec.end.x;
-	cout << "y: ";
-	cin >> vec.end.y;
-}
-
 int main(){
 	vector vec1;
 	vector vec2;
 	char exit = 'n';
 
 	while(exit == 'n'){
-		populateVec(vec1);
-		populateVec(vec2);
-		cout << "The length of vec1 is: " << length(vec1) << endl;
-		cout << "The length of vec2 is: " << length(vec2) << endl;
-		cout << "The length of sum of the two vectors is: " << length(addVec(vec1,vec2)) << endl;
+		vec1.populateVec();
+		vec2.populateVec();
+		cout << "The length of sum of the two vectors is: " << addVec(vec1,vec2).length() << endl;
 		cout << "Are you finished calculating? (y/n) ";
 		cin >> exit;
 	}
