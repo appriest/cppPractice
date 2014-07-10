@@ -22,13 +22,14 @@ class vector{
 	}
 
 	void populateVec(){
+		
 		cout << "Enter the start point in vector 1 (x,y):\n" << "x: ";
 		cin >> start.x;
-		cout << "y: ";
+		cout << "\ry: ";
 		cin >> start.y;
 		cout << "Enter the end point in vector 1 (x,y):\n" << "x: ";
 		cin >> end.x;
-		cout << "y: ";
+		cout << "\ry: ";
 		cin >> end.y;
 		cout << "Your vector is:\n"; 
 		printVec();
